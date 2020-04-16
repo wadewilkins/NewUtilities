@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Description: New Relic coding challenge application JAR
+Main-Class: com.newrelic.codingchallenge.Main
+

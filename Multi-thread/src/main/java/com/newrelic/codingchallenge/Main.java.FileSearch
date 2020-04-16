@@ -1,0 +1,218 @@
+package com.newrelic.codingchallenge;
+import java.io.*;  
+import java.net.*;  
+
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.io.IOException;
+import java.text.SimpleDateFormat;  
+import java.util.Date; 
+import java.util.concurrent.ExecutorService; 
+import java.util.concurrent.Executors; 
+import java.io.PrintWriter;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Control class to keep numbers for 10 second activity and total unique.
+class Control {
+  private static int report_unique_change = 0;
+  private static int report_duplicates = 0;
+  private static ArrayList<String> numbers = new ArrayList<String>();
+
+  public synchronized boolean search_numbers(String search_for){
+     try{
+        if ( numbers.contains(search_for ) )
+           return true;
+        return false;
+     }
+     catch (Exception e) {
+        System.out.println("Array issues");
+        return false;
+     }
+  }
+  public synchronized int get_unique_total(){
+     return numbers.size();
+  }
+  public synchronized void add_number(String new_number){
+     numbers.add(new_number);
+  }
+  public synchronized void increment(){
+     report_unique_change++;
+  }
+  public synchronized int get_unique(){
+    return report_unique_change;
+  }
+  public synchronized void zero_unique_and_dups(){
+    report_unique_change = 0;
+    report_duplicates = 0;
+  }
+  public synchronized void increment_dups(){
+     report_duplicates++;
+  }
+  public synchronized int get_dups(){
+    return report_duplicates;
+  }
+}
+
+// Main class sets up timer and listens to socket. 
+// Create thread pool of 5 to ensure only 5 calls at a time are serviced.
+public class Main {
+Timer timer;
+public static final int MAX_THREADS = 5;
+public static final int SECONDS_REPORT = 10;
+private int report_unique_change = 0;
+private int report_duplicates = 0;
+
+    public static void main(String[] args) throws InterruptedException {
+
+       // Create thread pool for processing client calls.
+       ExecutorService executor = Executors.newFixedThreadPool(MAX_THREADS);
+
+       // Create 10 second timer for online reporting.
+       Timer timer = new Timer("Repeated Interval");
+       TimerTask task = new TimerTask() {
+           @Override
+           public void run() {
+               Control control = new Control();
+               System.out.println("Received " + control.get_unique() + " unique numbers, " + control.get_dups() + " duplicates. Unique total: "+ control.get_unique_total());
+               control.zero_unique_and_dups();
+           }
+       };
+       long duration = 10000L;
+       long delay= 10000L;
+       timer.schedule(task, delay,duration);
+
+       // Wipe out the file
+       try{
+           File file = new File("/tmp/numbers.log");
+           if (file.exists()) 
+                file.delete();
+       }
+       catch (Exception e){
+          System.out.println("Problem killing file at startup");
+          System.exit(1);
+       }
+
+
+       // try to listen on port 4000 and loop for client calls until "terminate" is sent.
+       try ( ServerSocket listener = new ServerSocket(4000)) {
+            System.out.println("The server is starting...");
+            String NineDigitNumber = "Start";
+            while (true) {
+                try (Socket socket = listener.accept()) {
+                    InputStream input = socket.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    NineDigitNumber = reader.readLine();
+                    NineDigitNumber = NineDigitNumber.trim();
+                    if ( NineDigitNumber.equals("terminate") ){
+                         System.out.println("Terminating...");
+                         break;
+                    }
+                    reader.close();
+                    socket.close();
+                    Runnable worker = new WorkerThread(NineDigitNumber);
+                    executor.execute(worker);
+                }
+            }
+            //  Clean up thread pool
+            executor.shutdown();
+        }
+        catch (Exception e) {
+               System.out.println("We have a problem Houston");
+               System.out.println(e);
+               e.printStackTrace();
+        }
+        
+        System.exit(0);
+    }
+} // End Main class
+
+//  Worker thread that checks input for being unique and writes to the file if it is.
+class WorkerThread implements Runnable {
+
+    private String command;
+    private Control control = new Control();
+
+    public WorkerThread(String s){
+        this.command=s;
+        //System.out.println("Thread:  " +s);
+    }
+
+    @Override
+    public void run() {
+        processCommand();
+    }
+
+    private void processCommand() {
+        try {
+                if( this.command.length() != 9 ){
+                     System.out.println("Not 9:  " +this.command);
+                     return;
+                }
+                try{
+                    int result = Integer.parseInt(this.command);
+                }
+                catch (Exception e) {
+                    return;
+                }  
+
+                int total_lines_in_file = 0;
+                try
+                {
+                    int dup_found = 0;
+                    if ( control.search_numbers(this.command) )
+                        control.increment_dups();
+                    // Check for duplicate in file
+                    //BufferedReader reader = new BufferedReader(new FileReader(file));
+                    //String line;
+                    //while ((line = reader.readLine()) != null) {
+                    //    total_lines_in_file++;
+                    //    if ( line.compareTo(this.command) == 0){
+                    //        dup_found=1;
+                    //        break;
+                    //    }
+                    //}
+                    //reader.close();
+
+                    // No dups, add to file and increment report unique and get total unique.
+                    else{
+                       synchronized(this){
+                          BufferedWriter bw;
+                          File file = new File("/tmp/numbers.log");
+                          if (!file.exists()) {
+                              file.createNewFile();
+                          }
+                         FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+                         bw = new BufferedWriter(fw);
+                         bw.write(this.command); 
+                         bw.write("\n");
+                         bw.close();
+                         control.increment();
+                         control.add_number(this.command);
+                       }
+                    }
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                } 
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public String toString(){
+        return this.command;
+    }
+}
+
+
+
+
+
+
+
+

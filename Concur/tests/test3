@@ -1,0 +1,21 @@
+
+
+echo -n "Testing missing task..."
+# Missing task
+RESULTS=`curl -silent localhost:5000/todos -d '{ "schedule": "* * * * *", "comment": "This is a task1"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad task"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+  
+echo -n "Testing empty task..."
+# Empty task
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "",  "schedule": "* * * * *", "comment": "This is a task1"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad task"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+exit 0

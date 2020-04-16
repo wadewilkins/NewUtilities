@@ -1,0 +1,103 @@
+The server is starting...
+Received 0 unique numbers, 0 duplicates. Unique total: 0
+Received 0 unique numbers, 0 duplicates. Unique total: 0
+Received 0 unique numbers, 0 duplicates. Unique total: 0
+Received 5252 unique numbers, 0 duplicates. Unique total: 5252
+Received 4661 unique numbers, 0 duplicates. Unique total: 9913
+Received 3470 unique numbers, 0 duplicates. Unique total: 13383
+Received 2366 unique numbers, 0 duplicates. Unique total: 15749
+Received 561 unique numbers, 0 duplicates. Unique total: 16310
+Received 2530 unique numbers, 0 duplicates. Unique total: 18840
+Received 4946 unique numbers, 0 duplicates. Unique total: 23786
+Received 3524 unique numbers, 0 duplicates. Unique total: 27310
+Received 2895 unique numbers, 0 duplicates. Unique total: 30205
+Received 928 unique numbers, 0 duplicates. Unique total: 31133
+Received 1927 unique numbers, 0 duplicates. Unique total: 33060
+Received 3686 unique numbers, 0 duplicates. Unique total: 36746
+Received 3998 unique numbers, 0 duplicates. Unique total: 40744
+Received 3047 unique numbers, 0 duplicates. Unique total: 43791
+Received 1505 unique numbers, 0 duplicates. Unique total: 45296
+Received 2030 unique numbers, 0 duplicates. Unique total: 47326
+Received 2518 unique numbers, 0 duplicates. Unique total: 49844
+Received 3066 unique numbers, 0 duplicates. Unique total: 52910
+Received 3585 unique numbers, 0 duplicates. Unique total: 56495
+Received 2218 unique numbers, 0 duplicates. Unique total: 58718
+Received 2328 unique numbers, 0 duplicates. Unique total: 61047
+Received 2357 unique numbers, 0 duplicates. Unique total: 63404
+Received 2304 unique numbers, 0 duplicates. Unique total: 65709
+Received 2807 unique numbers, 0 duplicates. Unique total: 68516
+Received 2971 unique numbers, 0 duplicates. Unique total: 71487
+Received 2973 unique numbers, 0 duplicates. Unique total: 74460
+Received 2794 unique numbers, 0 duplicates. Unique total: 77254
+Received 2252 unique numbers, 0 duplicates. Unique total: 79506
+Received 2156 unique numbers, 0 duplicates. Unique total: 81662
+Received 2899 unique numbers, 0 duplicates. Unique total: 84561
+Received 3118 unique numbers, 0 duplicates. Unique total: 87679
+Received 2954 unique numbers, 0 duplicates. Unique total: 90633
+Received 2194 unique numbers, 0 duplicates. Unique total: 92827
+Received 2250 unique numbers, 0 duplicates. Unique total: 95077
+Received 2761 unique numbers, 0 duplicates. Unique total: 97838
+Received 3388 unique numbers, 0 duplicates. Unique total: 101226
+Received 2726 unique numbers, 0 duplicates. Unique total: 103952
+Received 2405 unique numbers, 0 duplicates. Unique total: 106357
+Received 1386 unique numbers, 0 duplicates. Unique total: 107743
+Received 2098 unique numbers, 0 duplicates. Unique total: 109841
+Received 3410 unique numbers, 0 duplicates. Unique total: 113251
+Received 2823 unique numbers, 0 duplicates. Unique total: 116074
+Received 1809 unique numbers, 0 duplicates. Unique total: 117883
+Received 2235 unique numbers, 0 duplicates. Unique total: 120118
+Received 2052 unique numbers, 0 duplicates. Unique total: 122170
+Received 3272 unique numbers, 0 duplicates. Unique total: 125442
+Received 2706 unique numbers, 0 duplicates. Unique total: 128148
+Received 1959 unique numbers, 0 duplicates. Unique total: 130107
+Received 2760 unique numbers, 0 duplicates. Unique total: 132867
+Received 1936 unique numbers, 0 duplicates. Unique total: 134803
+Received 3329 unique numbers, 0 duplicates. Unique total: 138132
+Received 1845 unique numbers, 0 duplicates. Unique total: 139978
+Catch socket read
+Catch socket read
+java.lang.NullPointerException
+Catch socket read
+Catch socket read
+java.lang.NullPointerException
+Catch socket read
+java.lang.NullPointerException
+Catch socket read
+java.lang.NullPointerException
+Catch socket read
+java.lang.NullPointerException
+Catch socket read
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+Received 1443 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Received 0 unique numbers, 0 duplicates. Unique total: 141421
+Terminating, please wait for final totals...
+Received 0 unique numbers, 0 duplicates. Unique total: 141421

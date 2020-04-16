@@ -1,0 +1,93 @@
+NUM_OF_ERRORS=0
+
+echo -n "Testing bad task schedules, alpha minute..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule1 >>/tmp/output.txt", "schedule": "a * * * *", "comment": "This is a schedule1"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+echo -n "Testing bad task schedules, alpha hour..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule2 >>/tmp/output.txt", "schedule": "* a * * *", "comment": "This is a schedule2"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+echo -n "Testing bad task schedules, alpha day of month..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule3 >>/tmp/output.txt", "schedule": "* * a * *", "comment": "This is a schedule3"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+echo -n "Testing bad task schedules, alpha month..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule4 >>/tmp/output.txt", "schedule": "* * * a *", "comment": "This is a schedule4"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+echo -n "Testing bad task schedules, alpha day of week..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule5 >>/tmp/output.txt", "schedule": "* * * * a", "comment": "This is a schedule55555"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+echo -n "Testing bad task schedules, bad numeric minute..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule6 >>/tmp/output.txt", "schedule": "60 * * * *", "comment": "This is a schedule6"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+echo -n "Testing bad task schedules, bad numeric hour..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule7 >>/tmp/output.txt", "schedule": "* 24 * * *", "comment": "This is a schedule7"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+# Bad characters in schedule
+echo -n "Testing bad task schedules, bad numeric day of month..."
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule8 >>/tmp/output.txt", "schedule": "* * 32 * *", "comment": "This is a schedule8"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+echo -n "Testing bad task schedules, bad numeric month..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule9 >>/tmp/output.txt", "schedule": "* * * 13 *", "comment": "This is a schedule9"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+echo -n "Testing bad task schedules, bad numeric day of week..."
+# Bad characters in schedule
+RESULTS=`curl -silent localhost:5000/todos -d '{"task": "echo schedule10 >>/tmp/output.txt", "schedule": "* * * * 7", "comment": "This is a schedule10"}' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"bad schedule"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+
+exit 0

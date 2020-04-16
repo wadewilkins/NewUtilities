@@ -1,0 +1,42 @@
+#!/bin/bash
+# These should create tasks as comments are not required.
+
+echo "Testing missing comment should be ok..."
+# Missing Comment
+# This makes some noise on the screen but, putting a -silent when creating a task corrupts the output of TASK_ID.
+# Todo:  Mix/understand why that is
+RESULTS=`curl localhost:5000/todos -d '{ "task": "echo comment1 >>/tmp/output.txt", "schedule": "* * * * *" }' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"task identifier"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+TEST=`echo "${RESULTS}" |cut -d: -f2 |cut -f2 -d'"'`
+TASK_ID=`echo ${TEST} | tr -d '{} '`
+echo "Delete test task..."
+x=$(curl -silent -X DELETE  http://localhost:5000/todos -d "{\"comment\": \"${TASK_ID}\"} " -H 'Content-Type: application/json')
+echo "(PASS)"
+
+
+
+echo "Testing empty comment should be ok..."
+# Empty comment
+# This makes some noise on the screen but, putting a -silent when creating a task corrupts the output of TASK_ID.
+# Todo:  Mix/understand why that is
+RESULTS=`curl localhost:5000/todos -d '{ "task": "echo comment2 >>/tmp/output.txt", "schedule": "* * * * *", "comment": ""  }' -H 'Content-Type: application/json'`
+if [[ ${RESULTS} != *"task identifier"* ]];then
+    echo "(FAIL)"
+    exit 1
+fi
+echo "(PASS)"
+TEST=`echo "${RESULTS}" |cut -d: -f2 |cut -f2 -d'"'`
+TASK_ID=`echo ${TEST} | tr -d '{} '`
+echo "Delete test task..."
+# Confirm task is in crontab
+x=$(curl -silent -X DELETE  http://localhost:5000/todos -d "{\"comment\": \"${TASK_ID}\"} " -H 'Content-Type: application/json')
+#TEST=`curl -silent -X DELETE -silent http://localhost:5000/todos/"${TASK_ID}"`
+echo "(PASS)"
+
+
+
+exit 0

@@ -1,0 +1,254 @@
+package com.newrelic.codingchallenge;
+import java.io.*;  
+import java.net.*;  
+
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.io.IOException;
+import java.util.concurrent.ExecutorService; 
+import java.util.concurrent.Executors; 
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import java.util.concurrent.locks.Lock; 
+import java.util.concurrent.locks.ReentrantLock; 
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashMap;
+import java.util.Map;
+
+import java.util.Date;
+import java.time.ZonedDateTime;
+import java.util.Calendar;
+
+// Control class to keep numbers for 10 second activity and total unique.
+// Synchronize setters, let getters go.
+class Control {
+  private static int report_unique_change = 0;
+  private static int report_unique_total = 0;
+  private static int report_duplicates = 0;
+  // private static ArrayList<String> numbers = new ArrayList<String>();
+  private final Lock AddQueueLock = new ReentrantLock(); 
+  private final Lock SearchQueueLock = new ReentrantLock();
+  private static ConcurrentHashMap unumbers = new ConcurrentHashMap(); 
+
+  public boolean IsDuplicateNumber(String search_for){
+     final Lock SearchLock = this.SearchQueueLock;
+     if ( unumbers.containsValue(search_for ) ){
+        SearchLock.lock();
+        try{
+           report_duplicates++;
+           return true;
+        }
+        catch (Exception e) {
+           e.printStackTrace(); 
+        }
+        finally{
+           SearchLock.unlock();
+        }
+     }
+     return false;
+  }
+  public int get_unique_total(){
+     return report_unique_total;
+  }
+  public void add_number(String new_number){
+     final Lock AddLock = this.AddQueueLock;
+     try{
+        unumbers.put(report_unique_total,new_number); 
+        AddLock.lock();
+        report_unique_total++;
+
+        report_unique_change++;
+        BufferedWriter bw = null;
+        try{
+          File file = new File("/tmp/numbers.log");
+          FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+          bw = new BufferedWriter(fw);
+          bw.write(new_number);
+          bw.write("\n");
+          bw.close();
+        }
+        catch(IOException e){
+          System.out.println("File Error ");
+        }
+     }
+     catch (Exception e) {
+          e.printStackTrace(); 
+     }
+     finally{
+        AddLock.unlock(); 
+     }
+
+  }
+  public int get_unique(){
+    return report_unique_change;
+  }
+  public synchronized void zero_unique_and_dups(){
+    report_unique_change = 0;
+    report_duplicates = 0;
+  }
+  public int get_dups(){
+    return report_duplicates;
+  }
+}
+
+// Main class sets up timer and listens to socket. 
+// Create thread pool of 5 to ensure only 5 calls at a time are serviced.
+public class Main {
+Timer timer;
+public static final int MAX_THREADS = 5;
+public static final int SECONDS_REPORT = 10;
+
+    public static void main(String[] args) throws InterruptedException {
+
+       // Control class for synchronization
+       Control control = new Control();
+
+       // Create thread pool for processing client calls.
+       ExecutorService executor = Executors.newFixedThreadPool(MAX_THREADS);
+
+       // Create 10 second timer for online reporting.
+       Timer timer = new Timer("Repeated Interval");
+       TimerTask task = new TimerTask() {
+           @Override
+           public void run() {
+               System.out.println("Received " + control.get_unique() + " unique numbers, " + control.get_dups() + " duplicates. Unique total: "+ control.get_unique_total());
+               control.zero_unique_and_dups();
+           }
+       };
+       long duration = 10000L;
+       long delay= 10000L;
+       timer.schedule(task, delay,duration);
+
+       // Wipe out the file
+       try{
+           File file = new File("/tmp/numbers.log");
+           if (file.exists()) 
+                file.delete();
+       }
+       catch (Exception e){
+          System.out.println("Problem killing file at startup");
+          System.exit(1);
+       }
+
+       // try to listen on port 4000 and loop for client calls until "terminate" is sent.
+       Calendar c1 = null;
+       Date dateOne = null;
+       long timeMilli = 0L;
+       int loop_counter=0;
+       try ( ServerSocket listener = new ServerSocket(4000)) {
+            System.out.println("The server is starting...");
+            String NineDigitNumber = "Start";
+            while (true) {
+                loop_counter++;
+                c1 = Calendar.getInstance();
+                dateOne = c1.getTime();
+                timeMilli = dateOne.getTime();
+                System.out.println("Socket loop Start. Time in ms:  "+timeMilli+", Loop counter: " +loop_counter);
+                try (Socket socket = listener.accept()) {
+                    InputStream input = socket.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    NineDigitNumber = reader.readLine();
+                    NineDigitNumber = NineDigitNumber.trim();
+                    c1 = Calendar.getInstance();
+                    dateOne = c1.getTime();
+                    timeMilli = dateOne.getTime();
+                    System.out.println("After read,  Command = "+NineDigitNumber+ " Time in ms:  "+timeMilli+", Loop counter: " +loop_counter);
+                    if ( NineDigitNumber.equals("terminate") ){
+                         System.out.println("Terminating...");
+                         System.out.println("Final Output:");
+                         TimeUnit.SECONDS.sleep(11);
+                         break;
+                    }
+                    reader.close();
+                    socket.close();
+                    // Send to thread for processing.
+                    Runnable worker = new WorkerThread(NineDigitNumber,control);
+                    executor.execute(worker);
+                    //c1 = Calendar.getInstance();
+                    //dateOne = c1.getTime();
+                    //timeMilli = dateOne.getTime();
+                    //System.out.println("Socket loop end,  Command = "+NineDigitNumber+ " Time in ms:  "+timeMilli+"\n\n");
+                }
+            }
+            //  Clean up thread pool
+            timer.cancel();
+            executor.shutdown();
+        }
+        catch (Exception e) {
+               System.out.println("We have a problem Houston");
+               System.out.println(e);
+               e.printStackTrace();
+        }
+        System.exit(0);
+    }
+} // End Main class
+
+//  Worker thread that checks input for being unique and writes to the file if it is.
+class WorkerThread implements Runnable {
+
+    private String command;
+    private Control control;
+
+    public WorkerThread(String s, Control c){
+        this.command=s;
+        this.control = c;
+    }
+
+    @Override
+    public void run() {
+        //Calendar c1 = Calendar.getInstance(); 
+        //Date dateOne = c1.getTime(); 
+        //long timeMilli = dateOne.getTime();
+        //System.out.println(Thread.currentThread().getName()+" Start. Command = "+command+ " Time in ms:  "+timeMilli);
+        processCommand();
+        //c1 = Calendar.getInstance(); 
+        //dateOne = c1.getTime(); 
+        //timeMilli = dateOne.getTime();
+        //System.out.println(Thread.currentThread().getName()+" End. Command = "+command+ " Time in ms:  "+timeMilli+"\n\n");
+    }
+
+    private void processCommand() {
+        try {
+                // Confirm input length is 9.
+                if( this.command.length() != 9 ){
+                     return;
+                }
+                // Test for numeric.
+                try{
+                    int result = Integer.parseInt(this.command);
+                }
+                catch (Exception e) {
+                    return;
+                }
+                // If this is not a duplicate, add number. 
+                try
+                {
+                    if ( !this.control.IsDuplicateNumber(this.command) ){
+                       //Calendar c1 = Calendar.getInstance();
+                       //Date dateOne = c1.getTime();
+                       //long timeMilli = dateOne.getTime();
+                       //System.out.println("Start add_number:  Command = "+command+ " Time in ms:  "+timeMilli);
+                       this.control.add_number(this.command);
+                       //dateOne = c1.getTime();
+                       //timeMilli = dateOne.getTime();
+                       //System.out.println("End add_number:  Command = "+command+ " Time in ms:  "+timeMilli);
+                    }
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                } 
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public String toString(){
+        return this.command;
+    }
+}
+

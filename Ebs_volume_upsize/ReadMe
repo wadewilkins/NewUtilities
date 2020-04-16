@@ -1,0 +1,76 @@
+
+This Utility was created to ease the maintenace on Cassandra clusters.
+Specifically, to grow a volume/partition/filesystem for AWS nodes.
+It operates off a text file.  The scripts refference a "hosts" file.
+This is just a tab delimited text file with IP and SSH key. 
+Each line is processed on its own, sequentially.
+
+Three "top level" scripts are in this project:
+resize_volumes.sh
+create_cassandra_host_file.sh
+report_volumes.sh
+
+resize_volumes.sh
+This is a script that will resize and volume/partition/filesystem on a set of aws EC2 nodes.
+It takes 3 parameters:
+1) host file (described above)
+2) mount point. This is the mount point to grow.
+3) size.  This is the size to grow the volume/partition/filesystem on every node, in GB.
+Really this is just a driving script.  It loops over the given host file and calls:
+aws_volume_grow.sh
+That is where the real work gets done.
+  4 parameters are sent to aws_volume_grow.sh
+  1) ONE_IP.  This is the IP address to work on at the moment.
+  2) MOUNT_POINT.  This is the mount point that will be grown.
+  3) SIZE_IN_GB.  This is the end size of the volume/partition/filesystem.  End size, in GB.
+  4) PEM_FILE.  This is the ssh key used.
+Comments in aws_volume_grow.sh will explain it's logic  
+
+create_cassandra_host_file.sh
+As these scripts were developed for Cassandra maintanence, This helper script will generate a host file for a Cassandra cluster.
+It takes 3 parameters:
+1) IP.  This is an IP address in the Cassandra cluster.  This needs to be up and running Cassandra.
+2) PEM FILE.  This is the ssh key for login to the node.  Do not include path to the key.  See PEM_LOCATION, below.
+3) HOST FILE.  This is the file name of a host file to generate.
+Note that each of these IPs get the ssh key looked up in AWS.  You will need these keys for the other two scripts to work.
+
+report_volumes.sh
+This script reports all information on volume/partition/filesystem of the nodes listed in the host file.
+It takes 2 parameters.
+1) host file (described above)
+2) mount point.  This is the mount point to report on.
+The out put from this varies, depending if the volume has been partitioned.
+Non partitioned output:
+Example call:
+./report_volumes.sh host.new /data
+Example output:
+IP		Mount	Used	Available	FileSystem	Device size	Device		Partition
+10.34.199.146	/data	34M	2.0T		/dev/xvdb	2T		/dev/xvdb	disk	
+Notice how the FileSystem and the Device colums are identical.  Also, the Partition column says disk.
+Partitioned output:
+Example call:
+/report_volumes.sh hosts.test /data
+Example output:
+IP		Mount	Used	Available	FileSystem	Device size	Device		Partition
+10.34.194.122	/data	33M	2.7T		/dev/xvdb1	2.7T		/dev/xvdb	/dev/xvdb1	part
+This shows the Device and Partition colums as being different.  Mainly the un-named column specifies "part", for partition.
+
+These scripts use ssh keys to access all nodes.  You will need these pem files.
+You can set an envrionment varialbe to point to the location of these keys:
+PEM_LOCATION="/tmp/"
+Each top level script looks for this envrionment variable.
+It it is not set, it sets it to "/tmp/".
+Notice the trailing backslash.
+
+As these scripts (most of them) use the AWS cli.
+This needes to be configured and defaulting to the correct account.
+
+A typical usage pattern would be:
+1)  create_cassandra_host_file.sh
+    This would generate a host file for the whole cluster.  You may want to remove some machines.
+2)  report_volumes.sh
+    Wise to confirm disk usage.
+3)  resize_volumes.sh
+    Given the host file generated, walk through the cluster and grow the volume/partition/filesytstem.
+    Maybe rerun report_volumes.sh to confirm?
+

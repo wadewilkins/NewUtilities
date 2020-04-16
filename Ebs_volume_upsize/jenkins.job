@@ -1,0 +1,37 @@
+#!/usr/bin/bash
+# VAULTPATH should be adjusted for every envrionment this job is deployed in.  Eg:  dev,lab,prod
+VAULTPATH="secret/tsops/aws/dev/sshkeys"
+#echo ""
+#echo ""
+#echo "#########################################################"
+#echo "# Setting up ssh key location.
+#echo "#########################################################"
+# Create directory to hold ssh keys for this run.
+# Export envrionment variable so scripts know where to find keys.
+mkdir /tmp/$BUILD_TAG
+export PEM_LOCATION="/tmp/$BUILD_TAG/"
+#echo ""
+#echo ""
+#echo "#########################################################"
+#echo "# Calling Resize volume script"
+#echo "#########################################################"
+# Change directory to project directory
+cd /var/lib/jenkins/workspace/EC2VolumeGrowRun/Ebs_volume_upsize
+sh 'chmod +x ./resize_volumes_string.sh'
+# Echo variable being sent to script.
+echo "Calling resize_volumes_string.sh with these variables:"
+echo $IP_LIST
+echo $MOUNT_POINT
+echo $VOLUME_SIZE
+pwd
+echo "Call volume resize script..."
+./resize_volumes_sting.sh $IP_LIST $MOUNT_POINT $VOLUME_SIZE $VAULTPATH $TOKEN
+./report_volumes_string.sh $IP_LIST $MOUNT_POINT $VOLUME_SIZE $VAULTPATH $TOKEN
+rm -fr "/tmp/$BUILD_TAG"
+#echo ""
+#echo ""
+#echo "#########################################################"
+#echo "# Complete
+#echo "#########################################################"
+#echo ""
+#echo ""

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.newrelic.codingchallenge.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-26T19:23:54" hostname="BELC02R95F4G8WN.sea.corp.expecn.com" time="0.001">
+  <properties/>
+  <testcase name="test" classname="com.newrelic.codingchallenge.MainTest" time="0.001"/>
+  <system-out><![CDATA[Testing
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

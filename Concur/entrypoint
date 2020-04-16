@@ -1,0 +1,10 @@
+#!/bin/sh
+
+## Start cron
+service cron start
+
+## Run application
+exec /app/app.py 
+
+# Hand off to the CMD
+#exec "$@"

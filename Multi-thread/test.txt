@@ -1,0 +1,656 @@
+The server is starting...
+Received 0 unique numbers, 0 duplicates. Unique total: 0
+Received 8701 unique numbers, 0 duplicates. Unique total: 8701
+Received 4038 unique numbers, 0 duplicates. Unique total: 12739
+Received 2782 unique numbers, 0 duplicates. Unique total: 15521
+Received 807 unique numbers, 0 duplicates. Unique total: 16328
+Received 776 unique numbers, 0 duplicates. Unique total: 17104
+Received 5445 unique numbers, 0 duplicates. Unique total: 22549
+Received 4619 unique numbers, 1 duplicates. Unique total: 27168
+Received 3527 unique numbers, 0 duplicates. Unique total: 30695
+Received 2308 unique numbers, 0 duplicates. Unique total: 33003
+Received 1702 unique numbers, 0 duplicates. Unique total: 34705
+Received 3104 unique numbers, 0 duplicates. Unique total: 37809
+Received 4059 unique numbers, 0 duplicates. Unique total: 41868
+Received 4051 unique numbers, 0 duplicates. Unique total: 45919
+Received 2524 unique numbers, 0 duplicates. Unique total: 48443
+Received 2349 unique numbers, 0 duplicates. Unique total: 50792
+Received 2490 unique numbers, 0 duplicates. Unique total: 53282
+Received 3163 unique numbers, 0 duplicates. Unique total: 56445
+Received 3252 unique numbers, 0 duplicates. Unique total: 59697
+Received 3328 unique numbers, 0 duplicates. Unique total: 63025
+Received 2553 unique numbers, 0 duplicates. Unique total: 65578
+Received 2890 unique numbers, 0 duplicates. Unique total: 68468
+Received 2808 unique numbers, 0 duplicates. Unique total: 71276
+Received 2844 unique numbers, 0 duplicates. Unique total: 74120
+Received 3181 unique numbers, 0 duplicates. Unique total: 77301
+Received 2567 unique numbers, 0 duplicates. Unique total: 79868
+Received 2464 unique numbers, 0 duplicates. Unique total: 82332
+Received 2979 unique numbers, 0 duplicates. Unique total: 85311
+Received 2247 unique numbers, 0 duplicates. Unique total: 87558
+Received 3581 unique numbers, 0 duplicates. Unique total: 91139
+Received 2964 unique numbers, 0 duplicates. Unique total: 94103
+Received 2783 unique numbers, 0 duplicates. Unique total: 96886
+Received 2255 unique numbers, 0 duplicates. Unique total: 99141
+Received 2535 unique numbers, 0 duplicates. Unique total: 101676
+Received 2974 unique numbers, 0 duplicates. Unique total: 104650
+Received 2927 unique numbers, 0 duplicates. Unique total: 107577
+Received 2981 unique numbers, 0 duplicates. Unique total: 110558
+Received 2579 unique numbers, 0 duplicates. Unique total: 113137
+Received 2103 unique numbers, 0 duplicates. Unique total: 115240
+Received 2354 unique numbers, 0 duplicates. Unique total: 117594
+Received 3196 unique numbers, 0 duplicates. Unique total: 120790
+Received 3258 unique numbers, 0 duplicates. Unique total: 124048
+Received 2708 unique numbers, 0 duplicates. Unique total: 126756
+Received 2553 unique numbers, 0 duplicates. Unique total: 129309
+Received 1832 unique numbers, 0 duplicates. Unique total: 131141
+Received 2930 unique numbers, 0 duplicates. Unique total: 134071
+Received 2173 unique numbers, 0 duplicates. Unique total: 136244
+Received 3039 unique numbers, 0 duplicates. Unique total: 139283
+Received 2561 unique numbers, 0 duplicates. Unique total: 141844
+Received 2644 unique numbers, 0 duplicates. Unique total: 144488
+Received 2627 unique numbers, 0 duplicates. Unique total: 147115
+Received 2639 unique numbers, 0 duplicates. Unique total: 149754
+Received 2827 unique numbers, 0 duplicates. Unique total: 152583
+Received 2555 unique numbers, 0 duplicates. Unique total: 155138
+Received 2886 unique numbers, 0 duplicates. Unique total: 158024
+Received 2535 unique numbers, 0 duplicates. Unique total: 160559
+Received 2306 unique numbers, 0 duplicates. Unique total: 162865
+Received 2559 unique numbers, 0 duplicates. Unique total: 165424
+Received 2569 unique numbers, 0 duplicates. Unique total: 167993
+Received 2723 unique numbers, 0 duplicates. Unique total: 170716
+Received 2708 unique numbers, 0 duplicates. Unique total: 173424
+Received 2556 unique numbers, 0 duplicates. Unique total: 175980
+Received 2408 unique numbers, 0 duplicates. Unique total: 178388
+Received 2760 unique numbers, 0 duplicates. Unique total: 181148
+Received 2594 unique numbers, 0 duplicates. Unique total: 183742
+Received 2531 unique numbers, 0 duplicates. Unique total: 186273
+Received 2643 unique numbers, 0 duplicates. Unique total: 188916
+Received 2607 unique numbers, 0 duplicates. Unique total: 191523
+Received 2434 unique numbers, 0 duplicates. Unique total: 193957
+Received 2746 unique numbers, 0 duplicates. Unique total: 196703
+Received 2536 unique numbers, 0 duplicates. Unique total: 199239
+Received 2555 unique numbers, 0 duplicates. Unique total: 201794
+Received 2513 unique numbers, 0 duplicates. Unique total: 204307
+Received 2557 unique numbers, 0 duplicates. Unique total: 206864
+Received 2397 unique numbers, 0 duplicates. Unique total: 209261
+Received 2564 unique numbers, 0 duplicates. Unique total: 211825
+Received 2622 unique numbers, 0 duplicates. Unique total: 214447
+Received 2565 unique numbers, 0 duplicates. Unique total: 217012
+Received 1662 unique numbers, 0 duplicates. Unique total: 218675
+Received 1898 unique numbers, 0 duplicates. Unique total: 220573
+Received 252 unique numbers, 0 duplicates. Unique total: 220825
+Received 1132 unique numbers, 0 duplicates. Unique total: 221957
+Received 1385 unique numbers, 0 duplicates. Unique total: 223342
+Received 1479 unique numbers, 0 duplicates. Unique total: 224821
+Received 4146 unique numbers, 0 duplicates. Unique total: 228967
+Catch socket read
+Catch socket read
+java.net.SocketException: Can't assign requested address
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Catch socket read
+java.net.SocketException: Can't assign requested address
+Received 154 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 0 unique numbers, 0 duplicates. Unique total: 229121
+Received 1113 unique numbers, 0 duplicates. Unique total: 230234
+Received 5128 unique numbers, 0 duplicates. Unique total: 235362
+Received 3542 unique numbers, 0 duplicates. Unique total: 238904
+Received 3024 unique numbers, 0 duplicates. Unique total: 241928
+Received 2630 unique numbers, 0 duplicates. Unique total: 244558
+Received 1212 unique numbers, 0 duplicates. Unique total: 245770
+Received 0 unique numbers, 0 duplicates. Unique total: 245770
+Received 3799 unique numbers, 0 duplicates. Unique total: 249569
+Received 3885 unique numbers, 0 duplicates. Unique total: 253454
+Received 3101 unique numbers, 0 duplicates. Unique total: 256555
+Received 2583 unique numbers, 0 duplicates. Unique total: 259138
+Received 1479 unique numbers, 0 duplicates. Unique total: 260617
+Received 1575 unique numbers, 0 duplicates. Unique total: 262192
+Received 2851 unique numbers, 0 duplicates. Unique total: 265043
+Received 3215 unique numbers, 0 duplicates. Unique total: 268258
+Received 2095 unique numbers, 0 duplicates. Unique total: 270353
+Received 2573 unique numbers, 0 duplicates. Unique total: 272926
+Catch socket read
+Catch socket read
+Catch socket read
+Catch socket read
+java.lang.NullPointerException
+Catch socket read
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+Catch socket read
+java.lang.NullPointerException
+Catch socket read
+java.lang.NullPointerException
+Catch socket read
+java.lang.NullPointerException
+Received 698 unique numbers, 0 duplicates. Unique total: 273624
+Received 0 unique numbers, 1 duplicates. Unique total: 273624
+Received 0 unique numbers, 0 duplicates. Unique total: 273624
+Terminating, please wait for final totals...
+Received 0 unique numbers, 0 duplicates. Unique total: 273624

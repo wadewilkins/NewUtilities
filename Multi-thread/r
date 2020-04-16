@@ -1,0 +1,2 @@
+java -server -Xss384k  -jar ./build/libs/coding-challenge-shadow.jar
+

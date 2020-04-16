@@ -1,0 +1,136 @@
+package com.newrelic.codingchallenge;
+import java.io.*;  
+import java.net.*;  
+
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.io.IOException;
+import java.text.SimpleDateFormat;  
+import java.util.Date; 
+import java.util.concurrent.ExecutorService; 
+import java.util.concurrent.Executors; 
+import java.io.PrintWriter;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
+public class Main {
+Timer timer;
+public static final int MAX_THREADS = 5;
+public static final int SECONDS_REPORT = 10;
+private int report_unique_change = 0;
+private int report_duplicates = 0;
+class Control {
+  public volatile int report_unique_change = 0; 
+}
+final Control control = new Control();
+
+
+    public static void main(String[] args) throws InterruptedException {
+        // Add your code here
+       ExecutorService executor = Executors.newFixedThreadPool(MAX_THREADS);
+
+       Timer timer = new Timer("Repeated Interval");
+       TimerTask task = new TimerTask() {
+           @Override
+           public void run() {
+               System.out.println("Received  report_unique_change  unique numbers, report_duplicates  duplicates. Unique total: 567231");
+               // System.out.println("Execution time is :" + System.currentTimeMillis() + " Name of the thread is :" + Thread.currentThread().getName());
+           }
+       };
+       long duration = 10000L;
+       long delay= 10000L;
+       timer.schedule(task, delay,duration);
+
+
+       try ( ServerSocket listener = new ServerSocket(4000)) {
+            System.out.println("The server is starting...");
+            String NineDigitNumber = "Start";
+            while (true) {
+                try (Socket socket = listener.accept()) {
+                    InputStream input = socket.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    NineDigitNumber = reader.readLine();
+                    System.out.println("Input:  " +NineDigitNumber);
+                    if ( NineDigitNumber.equals("terminate") )
+                         break;
+                    if( NineDigitNumber.length() < 9 ){
+                         continue;
+                    }
+                    try{
+                        int result = Integer.parseInt(NineDigitNumber);
+                    }
+                    catch (Exception e) {
+			continue;
+                    }	
+                    Runnable worker = new WorkerThread("test");
+                    executor.execute(worker);
+                }
+            }
+            //  Clean up thread pool
+        }
+        catch (Exception e) {
+               System.out.println("We have a problem Houston");
+               System.out.println(e);
+               e.printStackTrace();
+        }
+        System.exit(0);
+    }
+
+
+} // End Main class
+
+
+
+class WorkerThread implements Runnable {
+
+    private String command;
+
+    public WorkerThread(String s){
+        this.command=s;
+    }
+
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName()+" Start. Command = "+command);
+        processCommand();
+        System.out.println(Thread.currentThread().getName()+" End.");
+    }
+
+    private void processCommand() {
+        try {
+                BufferedWriter bw;
+                try
+                {
+                    File file = new File("/tmp/output.txt");
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    //FileWriter fw = new FileWriter(file.getAbsoluteFile());
+                    FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+                    bw = new BufferedWriter(fw);
+                    synchronized(this){
+                       bw.write("Test\n");        // write to file
+                    }
+                    bw.close();
+                    //control.report_unique_change++;
+                }
+                catch (IOException e){
+                   e.printStackTrace();
+                }
+                Thread.sleep(5000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public String toString(){
+        return this.command;
+    }
+}
+
+
+

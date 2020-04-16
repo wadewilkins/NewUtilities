@@ -1,0 +1,66 @@
+#!/bin/bash
+# Test 1 confirms happy path of submitting to cron
+CONTAINER_ID=$1
+docker exec $CONTAINER_ID rm -rf /tmp/output.txt
+
+# Submit task, returns task ID.  Crude parse
+# This makes some noise on the screen but, putting a -silent when creating a task corrupts the output of TASK_ID.
+# Todo:  Mix/understand why that is
+echo "Submitting task..."
+OUTPUT=`curl  localhost:5000/todos -d '{"task": "echo test1 >>/tmp/output.txt", "schedule": "* * * * *", "comment": "test1"}' -H 'Content-Type: application/json' |cut -d: -f2 |cut -f2 -d'"'`
+TASK_ID=`echo ${OUTPUT} | tr -d '{} '`
+echo "(PASS)"
+echo "Task ID: ${TASK_ID} "
+
+echo -n "Confirming read after write..."
+# Confirm the service has this task id in its output
+x=$(curl -silent -X PUT  http://localhost:5000/todos -d "{\"comment\": \"${TASK_ID}\"} " -H 'Content-Type: application/json')
+TEST=`echo $x |grep "${TASK_ID}" | wc -l`
+if [ "$TEST" -eq "0" ]; then
+  echo "Can't read after write (FAIL)"
+  exit 1
+fi
+echo "(PASS)"
+
+
+echo -n "Confirming task with service, schedule is correct..."
+# Confirm schedule is in crontab
+TEST=`curl -silent http://localhost:5000/todos |grep "${TASK_ID}" |grep "* * * * *"  |wc -l`
+if [ "$TEST" -eq "0" ]; then
+  echo "Can't find schedule (FAIL)"
+  exit 1
+fi
+echo "(PASS)"
+
+
+echo -n "Confirming task with service, task is correct..."
+# Confirm task is in crontab
+TEST=`curl -silent http://localhost:5000/todos |grep "${TASK_ID}" |grep "echo test1 >>/tmp/output.txt"  |wc -l`
+if [ "$TEST" -eq "0" ]; then
+  echo "Can't find task (FAIL)"
+  exit 1
+fi
+echo "(PASS)"
+
+echo
+echo "Sleep for 65 seconds to let cron run"
+sleep 65
+echo
+echo -n "Confirming task ran, from cron..."
+docker cp $CONTAINER_ID:/tmp/output.txt ./
+DID_TASK_RUN_IN_CRON=`grep test1 output.txt | wc -l`
+if [ "$DID_TASK_RUN_IN_CRON" -eq "0" ]; then
+   echo "Cron job did not run (FAIL)"
+   exit 1
+fi
+echo "(PASS)"
+
+
+echo -n "Delete test task..."
+# Confirm task is in crontab
+echo $TASK_ID
+x=$(curl -X DELETE  http://localhost:5000/todos -d "{\"comment\": \"${TASK_ID}\"} " -H 'Content-Type: application/json')
+#TEST=`curl -silent -X DELETE -silent http://localhost:5000/todos/"${TASK_ID}"`
+echo "(PASS)"
+
+exit 0
