@@ -1,0 +1,50 @@
+
+This is a docker container service that puts a restful interface in front of Unbuntu crontab.
+It uses the crontab for a database of sorts.  Adds/querys/deletes act apon root's crontab file.
+It's scheduling format is based on crontabs.  This could be enhanced to a less geeky format.
+Notice that the crontabs comment field has been commandeered to house a task_id that is a hex uuid.
+This is for uniquely identifying every given task. 
+This service is a python/python_crontab/flask framework solution.
+The latter two componets are in the requirments.txt file and are installed automatically.
+By using the entrypoint script, the container can run both services, cron and app.py.
+
+
+You can start it locally by running:
+run_local.sh
+Unit testing can take place by running:
+run_tests.sh
+
+Endpoints for this service:
+
+Add task example:
+curl  localhost:5000/todos -d '{"task": "echo test1 >>/tmp/output.txt", "schedule": "* * * * *"}' -H 'Content-Type: application/json'
+
+Query ALL task example:
+curl http://localhost:5000/todos
+
+Query One task example:
+curl -X PUT  http://localhost:5000/todos -d '{"comment": "effdd5d6096b11ea80a60242ac110002"}' -H 'Content-Type: application/json'
+Note, the uuid in the comment field needs to match the output from the add or query all uuids.
+
+Delete one task example:
+curl -silent -X DELETE  http://localhost:5000/todos -d '{"comment": "2222"}'  -H 'Content-Type: application/json'
+Note, the uuid in the comment field needs to match the output from the add or query all uuids.
+
+The add process creates a unique TASK_ID.  It is stored in the crontab's comment field.
+This may be a bit confusing.  comment=task_id
+It is a unique identifier so we can query or delete a given task.
+
+
+
+Resources used:
+The internet.
+I had a lot to learn on Docker, flask and python_crontab.
+Faster builds with layered containers helped me greatly.
+This blog seemed to help me the most:
+https://pythonspeed.com/articles/faster-multi-stage-builds/
+
+Books:
+I read a large portion of
+Docker Deep Dive
+By Nigel Poulton
+
