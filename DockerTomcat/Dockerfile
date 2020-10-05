@@ -1,20 +1,26 @@
-# Dockerfile - this is a comment. Delete me if you want.
-#FROM python:2.7
-FROM ubuntu:latest AS os-image
-#FROM alpine:3.7
-COPY requirements.txt /app/requirements.txt
-WORKDIR /app
-RUN apt-get update && apt-get install -y \
-    python3-pip \
-    openjdk-11-jdk \
-    curl \
-    vim
-RUN pip3 install -r requirements.txt
-COPY entrypoint /entrypoint
-RUN chmod +x /entrypoint
+FROM ubuntu:latest AS tomcat-image
+ENV TZ=Etc/UTC
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+  
+RUN mkdir /opt/tomcat/
 
-FROM os-image AS runtime-image 
-#COPY --from=os-image /root/.local /root/.local
-COPY app.py /app/app.py
-RUN chmod +x /app/app.py
-ENTRYPOINT ["/entrypoint"]
+WORKDIR /opt/tomcat
+RUN apt-get update && apt-get install -y \
+    curl \
+    tar \
+    openjdk-11-jdk
+RUN curl -O https://downloads.apache.org/tomcat/tomcat-9/v9.0.38/bin/apache-tomcat-9.0.38.tar.gz
+RUN tar xfz apache*.tar.gz
+RUN mv apache-tomcat-9.0.38/* /opt/tomcat/.
+#RUN apt-get -y install java
+RUN java -version
+
+WORKDIR /opt/tomcat/webapps
+RUN curl -O -L https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
+COPY sample.war /opt/tomcat/webapps/sample.war
+
+EXPOSE 8080
+
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+
+

@@ -1,10 +1,13 @@
 #!/bin/sh
 
 ## Start cron
-service cron start
+systemctl enable tomcat9
+sudo ufw allow from any to any port 8080 proto tcp
+service tomcat start
 
 ## Run application
-#exec /app/app.py 
+exec /app/app.py 
+#exec /bin/bash
 
 # Hand off to the CMD
 #exec "$@"

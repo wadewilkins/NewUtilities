@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+  labels:
+    app: tomcat
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: tomcat-deployment
+  template:
+    metadata:
+      labels:
+        app: tomcat-deployment
+    spec:
+      containers:
+      - name: tomcat
+        image: wadewilkins/tomcat:tomcat-image
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
+

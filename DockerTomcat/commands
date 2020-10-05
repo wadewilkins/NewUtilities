@@ -1,0 +1,5 @@
+
+kubectl get deployments -o wide
+kubectl get services -o wide
+kubectl get pods -o wide
+okubectl exec --stdin --tty tomcat-deployment-5c5f85d7b-7wqzf -- /bin/bash

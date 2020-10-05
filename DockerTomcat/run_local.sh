@@ -10,7 +10,8 @@ fi
 # If we want to start over without manually (restful) deleting all tasks,
 # we can remove the volume with "docker volume rm wade_wilkins_concur_volume"
 #
-docker run -d --mount source=wade_wilkins_concur_volume,target=/var/spool/cron/crontabs -p 5000:5000 wade_wilkins_tomcat:latest
+#docker run -d --mount source=wade_wilkins_concur_volume,target=/var/spool/cron/crontabs -p 8080:8080 wade_wilkins_tomcat:latest
+docker run -d -p 8080:8080 wade_wilkins_tomcat:latest
 docker ps
 
 TEST=`docker ps --format "{{.ID}}" --filter 'ancestor=wade_wilkins_tomcat' | wc -l`
